@@ -10,7 +10,7 @@
       </ul>
     </div>
   </nav> 
-  <form action="{{url_for('change_to_delivered',id=delivery.id)}}" method="POST"> 
+  <form action="{{url_for('staff.change_to_delivered',id=delivery.id)}}" method="POST"> 
 <H4>change order number : {{delivery.id}} to delivered </H4><button 
 class="btn waves-effect waves-light"
 type="submit"

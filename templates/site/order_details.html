@@ -11,7 +11,7 @@
     </ul>
   </div>
 </nav> 
-<form action="/order_details" method="POST">  
+<form action="/order_details" method="GET">   
 <h2>your order details </h2>
 <h5 style="margin-left: 5px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
   <div>order number : {{delivery.id}}</div>
@@ -20,7 +20,6 @@
   </h5>
 </form>
 <form action="/order_details" method="GET">
-<a><button>finish</button></a>
-</form>
+  <a  href="/categories" class="waves-effect waves-light btn" style="border-radius: 10px;">continue shopping </a>
   {%endblock%}   
 

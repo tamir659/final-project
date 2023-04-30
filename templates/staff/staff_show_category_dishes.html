@@ -9,7 +9,7 @@
     </ul>
   </div>
 </nav>
-<h5><a href="{{url_for('add_dish',id=category.id)}}">Add dish to this category  </a></h5>
+<h5><a href="{{url_for('staff.add_dish',id=category.id)}}">Add dish to this category  </a></h5>
 
 {%for dish in category.dishes%}
   <div style="width: 400px;">
@@ -30,4 +30,4 @@
   </div> 
 <div><a href="{{url_for('delite_dish',id=dish.id)}}">delite {{dish.name}}</a></div>
 <div><a href="{{url_for('edit_dish',id=dish.id)}}">edit {{dish.name}} </a></div>
-{%endfor%} {%endblock%}
+{%endfor%} {%endblock%} 

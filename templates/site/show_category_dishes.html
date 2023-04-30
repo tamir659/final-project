@@ -13,7 +13,7 @@
 </nav>
 
 {%for dish in category.dishes%}
-<a href="{{url_for('show_dish',id=dish.id)}}">
+<a href="{{url_for('site.show_dish',id=dish.id)}}">
   <div style="width: 400px;">
   <div class="row">
     <div class="col s12 m7">

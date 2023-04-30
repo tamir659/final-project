@@ -11,8 +11,8 @@
       </ul>
     </div>
   </nav>  
-  <form action="{{url_for('delite_category',id=category.id)}}" method="POST">
-    <h5>if u sure you want to delite {{category.name}} press delite</h5>  <button
+  <form action="{{url_for('staff.delite_dish',id=dish.id)}}" method="POST">
+    <h5>if u sure you want to delite {{dish.name}} press delite</h5>  <button
     class="btn waves-effect waves-light"
     type="submit"
     name="action"
