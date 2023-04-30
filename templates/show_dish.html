@@ -1,0 +1,43 @@
+{%extends 'layout.html'%} {%block content%}
+<nav>
+  <div class="nav-wrapper"> 
+    <a class="brand-logo">{{dish.name}} </a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/sign_out">sign out</a></li>
+      <li><a href="/categories">Categories</a></li>
+      <li><a href="/cart">my cart</a></li>
+      <li><a href="/order_history">order history </a></li>
+      <li><a href="/edit_account_details">edit account details</a></li>
+    </ul>
+  </div>
+</nav> 
+<div style="width: 400px;">
+<div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img src={{dish.image}}>
+        </div>
+        <div class="card-content">
+          <p>{{dish.escription}}</p>
+        </div>
+        <div class="card-action">
+          <a >price : {{dish.price}} $ </br> </a>
+          <a>{{dish.description}}</a> 
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
+<form action='/show_dish/{{dish.id}}' method="POST">
+  <input type="number" placeholder="amount" id="amount" name="amount" min="1" max="100">   
+<button
+          class="btn waves-effect waves-light"
+          type="submit"
+          name="action"
+        >
+          <i class="material-icons right">Add to cart </i>
+        </button>
+</form>
+
+{%endblock%}

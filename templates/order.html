@@ -1,0 +1,30 @@
+{%extends 'layout.html'%} {%block content%}
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Order </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/sign_out">sign out</a></li>
+          <li><a href="/categories">Categories</a></li>
+          <li><a href="/cart">my cart</a></li>
+          <li><a href="/order_history">order history </a></li>
+          <li><a href="/edit_account_details">edit account details</a></li>
+        </ul>
+      </div>
+    </nav>
+    <form action="/order" method="POST">
+      <div>
+        <input type="text" placeholder="enter your adress" name="adress" />
+      </div>
+      <div>
+        <input type="text" placeholder="enter comment" name="comment" />
+      </div>
+        <button
+          class="btn waves-effect waves-light"
+          type="submit"
+          name="action"
+        >
+          <i class="material-icons right">order</i>
+        </button>
+      </div>
+    </form>
+    {%endblock%} 

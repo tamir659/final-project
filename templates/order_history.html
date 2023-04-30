@@ -1,0 +1,25 @@
+{%extends 'layout.html'%} {%block content%}
+<nav>
+  <div class="nav-wrapper">
+    <a class="brand-logo">order history </a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/sign_out">sign out</a></li>
+      <li><a href="/categories">Categories</a></li>
+      <li><a href="/cart">my cart</a></li>
+      <li><a href="/order_history">order history </a></li>
+      <li><a href="/edit_account_details">edit account details</a></li>
+    </ul>
+  </div>
+</nav> 
+<h2>your order details </h2>
+<h5 style="margin-left: 5px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+  {%for delivery in user.deliveries%}
+  <div style="margin-top: 25px;">
+  <div>order number : {{delivery.id}}</div>
+  <div>order date : {{delivery.created}}</div>
+  <div>total price to pay : {{delivery.total_price}}</div>
+</div>
+  {%endfor%}
+ 
+  </h5>
+  {%endblock%}   

@@ -1,0 +1,37 @@
+{%extends 'layout.html'%} {%block content%}
+<nav>
+  <div class="nav-wrapper">
+    <a class="brand-logo">My cart </a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/sign_out">sign out</a></li>
+      <li><a href="/categories">Categories</a></li>
+      <li><a href="/cart">my cart</a></li>
+      <li><a href="/order_history">order history </a></li>
+      <li><a href="/edit_account_details">edit account details</a></li>
+    </ul>
+  </div>
+</nav> 
+<h2> your cart items  </h2>
+
+{% for item in cart.items %}
+
+<h4 style="margin-left: 5px;">{{item.dish.name}} - amount : {{item.amount}} price :{{(item.dish.price)*(item.amount)}}$ <a href="{{url_for('remove_item',id=item.id)}}"><button
+  class="btn waves-effect waves-light"
+  type="submit"
+  name="action"
+  style="border-radius: 10px;"
+>
+  <i class="material-icons right">remove item </i>
+</button></a> </h4> 
+{%endfor%} 
+<h4>total price is : {{total_price}}$</h4>
+<a href='/order'><button
+  class="btn waves-effect waves-light"
+  type="submit"
+  name="action"
+  style="border-radius: 10px;"
+>
+  <i class="material-icons right">Order </i>
+</button></a> </h4> 
+
+{%endblock%}   

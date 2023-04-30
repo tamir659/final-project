@@ -1,0 +1,22 @@
+{%extends 'layout.html'%} {%block content%}
+
+<nav>
+    <div class="nav-wrapper">
+      <a class="brand-logo">change oreder to delivered </a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/sign_out">sign out</a></li>
+        <li><a href="/staff_categories">Change Categories</a></li>
+        <li><a href="/orders_manage">manage orders</a></li>        
+      </ul>
+    </div>
+  </nav> 
+  <form action="{{url_for('change_to_delivered',id=delivery.id)}}" method="POST"> 
+<H4>change order number : {{delivery.id}} to delivered </H4><button 
+class="btn waves-effect waves-light"
+type="submit"
+name="action"
+>
+<i class="material-icons right">change to delivered</i> 
+</button>
+</form> 
+  {%endblock%} 

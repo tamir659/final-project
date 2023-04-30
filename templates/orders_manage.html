@@ -1,0 +1,40 @@
+{%extends 'layout.html'%} {%block content%}
+<nav>
+  <div class="nav-wrapper">
+    <a class="brand-logo">orders manage </a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/sign_out">sign out</a></li>
+      <li><a href="/categories">Categories</a></li>
+      <li><a href="/cart">my cart</a></li>
+      <li><a href="/order_history">order history</a></li>
+    </ul>
+  </div>
+</nav> 
+<h2>orders details </h2>
+<h5  style="margin-left: 5px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; margin-bottom: 15px  ;">
+    {%for delivery in delivery%}
+    <div style="margin-bottom:25px ;">
+    <div>user id  : {{delivery.cart.user_id}}</div>
+  <div>order number : {{delivery.id}}</div>
+  <div>order date : {{delivery.created}}</div>
+  <div>total price  : {{delivery.total_price}}$</div> 
+  <div>adress : {{delivery.adress}}</div>
+  {% if delivery.is_delivered == "True": %}
+  <div style="background-color: rgb(4, 164, 12);"> delivered : {{delivery.is_delivered}}</div>
+  
+	{% else %}
+  <div style="background-color: red;"> delivered : {{delivery.is_delivered}}</div>
+  <a href="{{url_for('change_to_delivered',id=delivery.id)}}"><button 
+          class="btn waves-effect waves-light"
+          type="submit"
+          name="action"
+        >
+          <i class="material-icons right">change to delivered</i>
+        </button> </a>
+	{% endif %}
+  
+  
+</div>
+  {%endfor%}
+  </h5>
+  {%endblock%}    

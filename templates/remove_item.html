@@ -1,0 +1,23 @@
+{%extends 'layout.html'%} {%block content%}
+
+<nav>
+    <div class="nav-wrapper">
+      <a class="brand-logo">remove item from cart </a> 
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/sign_out">sign out</a></li>
+        <li><a href="/categories">Categories</a></li>
+        <li><a href="/cart">my cart </a></li>
+    
+      </ul>
+    </div>
+  </nav>  
+  <form action="{{url_for('remove_item',id=item.id)}}" method="POST">
+    <h5>if u sure you want to remove this item from cart press remove</h5>  <button
+    class="btn waves-effect waves-light"
+    type="submit"
+    name="action"
+  >
+    <i class="material-icons right">remove item  </i>
+  </button>
+  </form>
+  {%endblock%} 

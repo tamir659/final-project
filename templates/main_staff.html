@@ -1,0 +1,24 @@
+{%extends 'layout.html'%} {%block content%}
+
+<nav>
+    <div class="nav-wrapper">
+      <a class="brand-logo">Staff management</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/sign_out">sign out</a></li>
+        <li><a href="/staff_categories">Change Categories</a></li>
+        <li><a href="/orders_manage">manage orders</a></li>
+        
+        
+        
+      </ul>
+    </div>
+  </nav>  
+  <h3>Hi Staff member {{user.first_name}} {{user.last_name}} ! <br/>
+    what would you like to do ? 
+</h3>
+<h5><a href="/staff_categories">for change categories</a>
+<P>for change dishes , <br/>
+    please enter one of the categories </P>
+  </h5>
+  <h5><a href="/orders_manage">manage orders</a></h5>
+  {%endblock%} 
