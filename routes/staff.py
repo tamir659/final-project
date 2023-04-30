@@ -27,14 +27,14 @@ def staff_log_in():
                 return'password or username incorrect' 
          else:
              return 'you are not a staff member'
-     return render_template('/staff/staff_log_in.html') 
+     return render_template('staff/staff_log_in.html') 
 
 @staff_bp.route('/orders_manage')
 def orders_manage():
      if auth():
         if is_staff_auth():
             delivery = Delivery.query.all()
-            return render_template('/staff/orders_manage.html',delivery=delivery)
+            return render_template('staff/orders_manage.html',delivery=delivery)
         else:
              return redirect('/categories')  
      else:
@@ -45,7 +45,7 @@ def main_staff():
     if auth():
             if is_staff_auth():
                 user = User.query.filter_by(username=request.cookies.get('username')).first()
-                return render_template('/staff/main_staff.html',user = user )
+                return render_template('staff/main_staff.html',user = user )
             else:
                  return redirect('/categories') 
     else:
@@ -57,7 +57,7 @@ def staff_categories():
             if is_staff_auth():
                 user = User.query.filter_by(username=request.cookies.get('username')).first()
                 category = Category.query.all()
-                return render_template('/staff/staff_categories.html',category=category,user=user) 
+                return render_template('staff/staff_categories.html',category=category,user=user) 
             else:
                  return redirect('/categories')     
     else:
@@ -79,7 +79,7 @@ def add_category():
                         return redirect('/staff_categories')
                     else:
                         'category name cant be empty or contain numbers'     
-                return render_template('/staff/add_category.html',form=form) 
+                return render_template('staff/add_category.html',form=form) 
             else:
                  return redirect('/categories')
     else:
@@ -90,7 +90,7 @@ def staff_show_category_dishes(id):
     if auth():
             if is_staff_auth():
                 category=Category.query.get(id) 
-                return render_template('/staff/staff_show_category_dishes.html',category=category)
+                return render_template('staff/staff_show_category_dishes.html',category=category)
             else:
                  return redirect('/categories')
     else:
@@ -116,7 +116,7 @@ def add_dish(id):
                     db.session.add(new_dish)
                     db.session.commit()
                     return redirect('/staff_categories') 
-                return render_template('/staff/add_dish.html',category=category,form=form)
+                return render_template('staff/add_dish.html',category=category,form=form)
             else:
                  return redirect('/categories') 
     else:
@@ -131,7 +131,7 @@ def delite_dish(id):
                     db.session.delete(dish)
                     db.session.commit()
                     return redirect('/staff_categories')            
-                return render_template('/staff/delite_dish.html',dish=dish)
+                return render_template('staff/delite_dish.html',dish=dish)
             else:
                  return redirect('/categories') 
     else:
@@ -151,8 +151,8 @@ def edit_dish(id):
                         dish.is_gluten_free = request.form['is_gluten_free']
                         dish.is_vegeterian = request.form['is_vegeterian']
                         db.session.commit()
-                        return redirect(url_for('staff_categories'))
-                return render_template('/staff/edit_dish.html',dish=dish,form=form)
+                        return redirect(url_for('staff.staff_categories')) 
+                return render_template('staff/edit_dish.html',dish=dish,form=form)
             else:
                  return redirect('/categories')
      else:
@@ -167,7 +167,7 @@ def delite_category(id):
                     db.session.delete(category)
                     db.session.commit()
                     return redirect('/staff_categories')            
-                return render_template('/staff/delite_category.html',category=category)
+                return render_template('staff/delite_category.html',category=category)
             else:
                  return redirect('/categories') 
     else:
@@ -187,7 +187,7 @@ def edit_category(id):
                         return redirect(url_for('staff_categories'))
                     else:
                         return 'category name cant contain numbers'                        
-                return render_template('/staff/edit_category.html', category=category,form=form)
+                return render_template('staff/edit_category.html', category=category,form=form)
             else:
                  return redirect('/categories') 
     else:
@@ -200,5 +200,5 @@ def change_to_delivered(id):
           delivery.is_delivered = 'True'
           db.session.commit()
           return redirect('/orders_manage')
-    return render_template('/staff/change_to_delivered.html',delivery=delivery) 
+    return render_template('staff/change_to_delivered.html',delivery=delivery) 
           

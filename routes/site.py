@@ -7,8 +7,8 @@ from models.category import Category
 from models.dish import Dish
 from models.cart import Cart
 from models.delivery import Delivery  
-from utils import is_staff_auth , auth  
-from forms import Sign_up_Form , edit_category_form , edit_dish_form , add_category_form,add_dish_form 
+from utils import auth  
+from forms import Sign_up_Form 
 
 site_bp = Blueprint('site',__name__) 
    
@@ -206,7 +206,7 @@ def edit_account_details():
                     user.email = form.email.data
                     if user.first_name.isalpha() and user.last_name.isalpha():
                         db.session.commit()
-                        return redirect(url_for('categories')) 
+                        return redirect(url_for('site.categories')) 
                     else:
                      return 'name or last name cant contain numbers'                      
         return render_template('site/edit_details.html',form = form ) 
