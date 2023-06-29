@@ -1,20 +1,47 @@
 {%extends 'layout.html'%} {%block content%}
 <nav>
   <div class="nav-wrapper">
-    <a class="brand-logo">Tamirs restaurant</a>
-    
-  </div>
+    <a class="brand-logo">Tamir's restaurant</a>
+  </div> 
 </nav>
+<div style="background-image: url(/static/img/backk.jpg); background-size: cover;height: 1000px;">
+<div style="margin-left: 20px;">  
 <h3>Welcome to Tamir's restaurant !</h3>
-<h4>Only registered users can enter our site!</h4>
+</br>
+</br>
+<h4 >Only registered members can enter our site!</h4>
 
 <div>
-  <h2><a href="/log_in">log in </a></h2>
+  <h3>I'M a member ! - <a href="/log_in"><button
+    class="btn waves-effect waves-light"
+    type="submit"
+    name="action"
+    style="border-radius: 10px;" 
+  >
+    <i class="material-icons right">log in</i>
+  </button></a></h3>
 </div>
 <div>
-  <h2><a href="/sign_up"> sign_up </a></h2>
+  <h3>I'M not a member ! - <a href="/sign_up"><button
+    class="btn waves-effect waves-light"
+    type="submit"
+    name="action"
+    style="border-radius: 10px;" 
+  >
+    <i class="material-icons right">Sign up </i>
+  </button></a></h3>
 </div>
 <div>
-  <h2><a href="/staff_log_in">staff log in </a></h2>
+  <h3>I'M a staff member ! - <a href="/staff_log_in"><button
+    class="btn waves-effect waves-light"
+    type="submit"
+    name="action"
+    style="border-radius: 10px;" 
+  >
+    <i class="material-icons right">Staff log in</i>
+  </button></a></h3>
+</div>
+</div>
+
 </div>
 {%endblock%}
